@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D3D3D3"
+    tools:context=".ExploreFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        >
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/explore_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Toolbar
+                android:id="@+id/explore_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#666363"
+                android:elevation="0dp"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/explore_imageButton_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/explore_constraintLayout"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/explore_textView_explore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Explore"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/explore_imageButton_back"
+                app:layout_constraintStart_toEndOf="@+id/explore_imageButton_back"
+                app:layout_constraintTop_toTopOf="@+id/explore_imageButton_back"
+                app:layout_constraintVertical_bias="0.523" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/explore_textView_favouriteParks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="70dp"
+                android:text="Favourite parks"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/explore_recyclerView_favouriteParks"
+                android:layout_width="0dp"
+                android:layout_height="222dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/white"
+                android:elevation="0dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/explore_textView_favouriteParks" />
+
+            <TextView
+                android:id="@+id/explore_textView_visitedParks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Visited"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@+id/explore_textView_favouriteParks"
+                app:layout_constraintTop_toBottomOf="@+id/explore_recyclerView_favouriteParks" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/explore_recyclerView_visitedParks"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/explore_textView_visitedParks">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/exploreFragment_textView_events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Events"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@id/explore_textView_visitedParks"
+                app:layout_constraintTop_toBottomOf="@id/explore_recyclerView_visitedParks" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/exploreFragment_recyclerView_events"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/explore_recyclerView_visitedParks"
+                app:layout_constraintTop_toBottomOf="@id/exploreFragment_textView_events" />
+
+            <TextView
+                android:id="@+id/exploreFragment_textView_states"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="States"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="@id/exploreFragment_textView_events"
+                app:layout_constraintTop_toBottomOf="@id/exploreFragment_recyclerView_events" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/exploreFragment_recyclerView_states"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/exploreFragment_recyclerView_events"
+                app:layout_constraintTop_toBottomOf="@id/exploreFragment_textView_states" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="100dp"
+                android:text="Design Support Library
+The Design package provides APIs to support adding material design components and patterns to your apps.
+
+The Design Support library adds support for various material design components and patterns for app developers to build upon, such as navigation drawers, floating action buttons (FAB), snackbars, and tabs.
+
+The Gradle build script dependency identifier for this library is as follows:"
+                android:textSize="34sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/exploreFragment_recyclerView_states" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/explore_bottomSheet_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:clickable="true"
+        android:background="@color/white">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is BottomSheet"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/explore_bottomSheet_button_openIndividualFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="open individual fragment"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="34dp"
+            />
+        <Button
+            android:id="@+id/explore_bottomSheet_button_openTestFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="open test fragment"
+            app:layout_constraintTop_toBottomOf="@id/explore_bottomSheet_button_openIndividualFragment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
